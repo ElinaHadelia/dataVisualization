@@ -22,7 +22,7 @@ selsamp <- file %>% filter(Entity =="Arab World" | Entity =="Caribbean small sta
                             | Entity=="Sub-Saharan Africa") %>%
   arrange(desc(IndividualsUsingTheInternet_PercOfPopulation))
                   
-#barplot. #reorder puts the values of Entity in desc order
+#barplot. Reorder puts the values of Entity in desc order
 g<- ggplot(selsamp, aes(x=reorder(Entity, -IndividualsUsingTheInternet_PercOfPopulation), y=IndividualsUsingTheInternet_PercOfPopulation)) + 
   geom_bar(stat = "identity", aes(fill = Entity))  + theme_bw() +
   labs(title = paste0("Percent of Population Using the Internet in 2016"), x = "Region", y = "Percent of Population") +
