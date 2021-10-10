@@ -4,7 +4,7 @@ library (ggplot2)
 library (scales)
 library(dplyr) 
 
-args=c("share-of-individuals-using-the-internet.txt","toFilter.txt","/Users/Elina/hw1")
+args=c("share-of-individuals-using-the-internet.txt","toFilter.txt","/Users/Elina/Desktop/hw1")
 INPUT = args[1]
 TO_FILTER = args[2]
 mydir=args[3]
