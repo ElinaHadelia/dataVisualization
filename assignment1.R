@@ -4,7 +4,7 @@ library (ggplot2)
 library (scales)
 library(dplyr) 
 
-args=c("share-of-individuals-using-the-internet.txt","toFilter.txt","/Users/Elina/Desktop/DataVisualization_MS/hw1")
+args=c("share-of-individuals-using-the-internet.txt","toFilter.txt","/Users/Elina/hw1")
 INPUT = args[1]
 TO_FILTER = args[2]
 mydir=args[3]
@@ -21,8 +21,7 @@ selsamp <- file %>% filter(Entity =="Arab World" | Entity =="Caribbean small sta
                             | Entity=="Middle East & North Africa" | Entity=="Pacific island small states" | Entity=="South Asia"
                             | Entity=="Sub-Saharan Africa") %>%
   arrange(desc(IndividualsUsingTheInternet_PercOfPopulation))
-
-#medium option                    
+                  
 #barplot. #reorder puts the values of Entity in desc order
 g<- ggplot(selsamp, aes(x=reorder(Entity, -IndividualsUsingTheInternet_PercOfPopulation), y=IndividualsUsingTheInternet_PercOfPopulation)) + 
   geom_bar(stat = "identity", aes(fill = Entity))  + theme_bw() +
@@ -33,7 +32,7 @@ png("question1_phones.png", width = 3000, height = 2400, res = 300, pointsize = 
 print(g)
 dev.off()
 
-#easy option
+#option1
 #pieChart
 p<- ggplot(selsamp, aes(x="", y=IndividualsUsingTheInternet_PercOfPopulation, fill=Entity)) +
   geom_bar(stat="identity", width=1, color="white", size=0.8) +
@@ -48,7 +47,7 @@ print(p)
 dev.off()
  
   
-#medium option
+#option2
 #barchart
 file2 <- read.table(INPUT, sep ="\t",  header = T) %>% filter(Year == "2005" | Year =="2010" | Year=="2015")
 selsamp2 <- file2 %>% filter(Entity =="Arab World" | Entity =="Caribbean small states" | Entity=="Central Europe and the Baltics"
